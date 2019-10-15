@@ -109,7 +109,12 @@ typedef void ecc_mod_inv_func (const struct ecc_modulo *m,
 			       mp_limb_t *vp, const mp_limb_t *ap,
 			       mp_limb_t *scratch);
 
-/* Computes the square root of (u/v) (mod p) */
+/* The sqrt and sqrt_ratio functions need 2*m->size limbs at rp */
+typedef int ecc_mod_sqrt_func (const struct ecc_modulo *m,
+			       mp_limb_t *vp, const mp_limb_t *ap,
+			       mp_limb_t *scratch);
+
+/* Computes the square root of (u/v) (mod p). */
 typedef int ecc_mod_sqrt_ratio_func (const struct ecc_modulo *m,
 				     mp_limb_t *rp,
 				     const mp_limb_t *up, const mp_limb_t *vp,
@@ -141,6 +146,7 @@ struct ecc_modulo
   unsigned short redc_size;
   unsigned short invert_itch;
   unsigned short sqrt_itch;
+  unsigned short sqrt_ratio_itch;
 
   const mp_limb_t *m;
   /* B^size mod m. Expected to have at least 32 leading zeros
@@ -156,6 +162,7 @@ struct ecc_modulo
   ecc_mod_func *mod;
   ecc_mod_func *reduce;
   ecc_mod_inv_func *invert;
+  ecc_mod_sqrt_func *sqrt;
   ecc_mod_sqrt_ratio_func *sqrt_ratio;
 };
 

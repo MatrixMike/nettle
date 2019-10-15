@@ -248,6 +248,7 @@ const struct ecc_curve _nettle_secp_256r1 =
     ECC_REDC_SIZE,
     ECC_MOD_INV_ITCH (ECC_LIMB_SIZE),
     0,
+    0,
 
     ecc_p,
     ecc_Bmodp,
@@ -259,6 +260,7 @@ const struct ecc_curve _nettle_secp_256r1 =
     USE_REDC ? ecc_256_redc : ecc_256_modp,
     ecc_mod_inv,
     NULL,
+    NULL,
   },
   {
     256,
@@ -266,6 +268,7 @@ const struct ecc_curve _nettle_secp_256r1 =
     ECC_BMODQ_SIZE,
     0,
     ECC_MOD_INV_ITCH (ECC_LIMB_SIZE),
+    0,
     0,
 
     ecc_q,
@@ -277,6 +280,7 @@ const struct ecc_curve _nettle_secp_256r1 =
     ecc_256_modq,
     ecc_256_modq,
     ecc_mod_inv,
+    NULL,
     NULL,
   },
 

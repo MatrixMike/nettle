@@ -1,3 +1,23 @@
+2019-10-15  Niels Möller  <nisse@lysator.liu.se>
+
+	* ecc-internal.h (ecc_mod_sqrt_func): New typedef.
+	(struct ecc_modulo): Add sqrt_ratio_itch and sqrt function
+	pointer. Update all curve definitionns.
+
+	* ecc-25519.c (ecc_25519_sqrt_ratio): Renamed, from...
+	(ecc_25519_sqrt): ... old name.
+	(_nettle_curve25519): Update curve definition.
+
+	* ecc-192.c (ecc_192_zero_p): New function.
+	(ecc_192_sqrt): New square root function, based on patch by Wim
+	Lewis.
+
+	* testsuite/ecc-sqrt-test.c (test_sqrt): New function.
+	(test_sqrt_ratio): Renamed, from...
+	(test_modulo): ... old name.
+	(test_main): Call test_sqrt and test_sqrt_ratio, for those curves
+	that support these operations.
+
 2019-09-26  Niels Möller  <nisse@lysator.liu.se>
 
 	* ecc-mod-pow.c (ecc_mod_pow_2k, ecc_mod_pow_2k_mul): New file, new

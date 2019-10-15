@@ -84,6 +84,7 @@ const struct ecc_curve _nettle_secp_521r1 =
     ECC_REDC_SIZE,
     ECC_MOD_INV_ITCH (ECC_LIMB_SIZE),
     0,
+    0,
 
     ecc_p,
     ecc_Bmodp,
@@ -95,6 +96,7 @@ const struct ecc_curve _nettle_secp_521r1 =
     ecc_521_modp,
     ecc_mod_inv,
     NULL,
+    NULL,
   },
   {
     521,
@@ -102,6 +104,7 @@ const struct ecc_curve _nettle_secp_521r1 =
     ECC_BMODQ_SIZE,
     0,
     ECC_MOD_INV_ITCH (ECC_LIMB_SIZE),
+    0,
     0,
 
     ecc_q,
@@ -113,6 +116,7 @@ const struct ecc_curve _nettle_secp_521r1 =
     ecc_mod,
     ecc_mod,
     ecc_mod_inv,
+    NULL,
     NULL,
   },
   
